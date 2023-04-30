@@ -1,18 +1,12 @@
 import React from "react";
 import logo from "../../../assets/logo.png";
 import moment from "moment";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../../../providers/AuthProvider";
-import { FaUserCircle } from "react-icons/fa";
-import NavigationBar from "../NavigationBar/NavigationBar";
+
 
 const Header = () => {
-
-const {user} = useContext(AuthContext)
-
   return (
     <Container>
       <div className="text-center mt-4">
@@ -29,11 +23,12 @@ const {user} = useContext(AuthContext)
         <Marquee speed={150}>
           <h4 className="text-danger">
             {" "}
-            <span>Breaking News...!</span>
+            <span>Bangladeshis in Sudan to be brought back via Jeddah: foreign ministry. || PM Hasina arrives in Washington DC</span> || 
+            <span> DU entry tests begin with fine arts || FDIC prepares to place First Republic Bank under receivership</span> 
           </h4>
         </Marquee>
       </div>
-      <NavigationBar/>
+      
     </Container>
   );
 };

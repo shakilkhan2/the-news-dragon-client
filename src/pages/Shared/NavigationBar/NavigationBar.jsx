@@ -7,26 +7,32 @@ import { useContext } from 'react';
 
 const NavigationBar = () => {
 
-    const {user} = useContext(AuthContext)
+    const {user, logOut} = useContext(AuthContext);
+
+    const handleLogOut = () =>{
+      logOut()
+      .then()
+      .catch(error => console.log(error));
+    }
 
     return (
         <Container>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Container>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
+          <Navbar.Collapse id="responsive-navbar-nav" className='d-flex align-items-center'>
             <Nav className="mx-auto">
-              <Nav.Link to="/">
-                <Link className="text-decoration-none text-secondary" to="/">Home</Link>
-              </Nav.Link>
+              
+                <Link className="text-decoration-none text-secondary" to="/category/0">Home</Link>
+              
               <Nav.Link to="#price">About</Nav.Link>
               <Nav.Link href="#pricing">Career</Nav.Link>
             </Nav>
             <Nav>
-              {user && <Nav.Link href="#deets"><FaUserCircle/> {user?.displayName}</Nav.Link>}
-              <Nav.Link eventKey={2} href="#memes">
-                {user? <Button variant="secondary">Logout</Button> : <Link to="/login"><Button variant="secondary">Login</Button></Link>}
-              </Nav.Link>
+              {user && <span className='me-2'><  FaUserCircle /> {user?.displayName}</span>}
+              
+                {user? <Button onClick={handleLogOut} variant="secondary">Logout</Button> : <Link to="/login"><Button variant="secondary">Login</Button></Link>}
+              
             </Nav>
           </Navbar.Collapse>
         </Container>

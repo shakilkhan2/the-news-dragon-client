@@ -7,7 +7,7 @@ import img3 from "../../../assets/3.png"
 const LeftSideCards = () => {
     return (
         <div className="mt-5">
-        <h5 mb-3>Editors' Insight</h5>
+        <h5 className='mb-3'>Editors' Insight</h5>
       <Row sm={1} className="g-4 ">
         <Col>
           <Card>
